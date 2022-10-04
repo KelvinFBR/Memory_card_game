@@ -1,18 +1,12 @@
-import { useContext, useMemo } from "react";
-import { dataCards } from "../../data/DataCards";
-import { CardsContext } from "../context/CardsContext";
-import { shuffleCards } from "../helpers/shuffleCards";
-import { useCardMatch } from "../hooks/useCardMatch";
 import { Card } from "./Card";
+import { dataCards } from "../../data/DataCards";
+import { shuffleCards, cardMatch } from "../helpers/";
+import { useMemo } from "react";
 
 export const Table = () => {
   const suffleCards = useMemo(() => shuffleCards(dataCards), []);
 
-  const { counter, setCounter } = useContext(CardsContext);
-  const { onSelectCard } = useCardMatch({
-    counter,
-    setCounter,
-  });
+  const { onSelectCard } = cardMatch();
 
   return (
     <div className="transparentBg text-white p-5 max-w-screen-sm  rounded-xl">

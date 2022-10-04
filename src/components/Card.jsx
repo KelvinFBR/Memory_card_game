@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Card = ({ idCard, numCard, onSelectCard }) => {
   const [isFlip, setIsFlip] = useState(false);
