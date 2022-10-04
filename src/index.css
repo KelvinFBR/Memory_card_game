@@ -14,4 +14,75 @@ body {
   .transparentBg {
     background-color: rgba(255, 255, 255, 0.2);
   }
+
+  .cardFaceDown {
+    transition: all 0.2s 0.15s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
+
+  .cardFaceUp {
+    transition: all 0.2s 0.15s ease-in-out;
+  }
+
+  .cardImgDown {
+    transition: all 0.2s 0.15s ease-in-out;
+  }
+  .cardImgUp {
+    transition: all 0.2s 0.15s ease-in-out;
+  }
+
+  .flip-face-up {
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-animation: flip-face-up 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      both;
+    animation: flip-face-up 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+
+  @-webkit-keyframes flip-face-up {
+    0% {
+      -webkit-transform: rotateX(190deg);
+      transform: rotateX(190deg);
+    }
+    100% {
+      -webkit-transform: rotateX(360deg);
+      transform: rotateX(360deg);
+    }
+  }
+  @keyframes flip-face-up {
+    0% {
+      -webkit-transform: rotateX(190deg);
+      transform: rotateX(190deg);
+    }
+    100% {
+      -webkit-transform: rotateX(360deg);
+      transform: rotateX(360deg);
+    }
+  }
+
+  .flip-face-dowm {
+    -webkit-animation: flip-face-dowm 0.4s
+      cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+    animation: flip-face-dowm 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+
+  @-webkit-keyframes flip-face-dowm {
+    0% {
+      -webkit-transform: rotateX(360deg);
+      transform: rotateX(360deg);
+    }
+    100% {
+      -webkit-transform: rotateX(190deg);
+      transform: rotateX(190deg);
+    }
+  }
+  @keyframes flip-face-dowm {
+    0% {
+      -webkit-transform: rotateX(360deg);
+      transform: rotateX(360deg);
+    }
+    100% {
+      -webkit-transform: rotateX(190deg);
+      transform: rotateX(190deg);
+    }
+  }
 }
