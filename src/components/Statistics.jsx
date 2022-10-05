@@ -1,7 +1,7 @@
 import { useTimeGame } from "../hooks/useTimeGame";
 
 export const Statistics = ({ points, movements }) => {
-  const { time } = useTimeGame(20);
+  const { time } = useTimeGame(40);
 
   return (
     <div className="transparentBg p-2 rounded-lg flex flex-col  sm:flex-row max-w-screen-sm text-center font-bold mt-4 text-xl text-sky-100">
