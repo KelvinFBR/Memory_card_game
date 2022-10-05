@@ -13,7 +13,21 @@ let arrIdCard = [];
 let arrSetFlipCard = [];
 const counterMatchCard = [];
 
-export const cardMatch = () => {
+//* setPoints, setMovements modificadores del estado del CardContext
+//  setPoints: modifica los puntos
+//  setMovementsL modifica los movimientos
+
+export const cardMatch = ({ setPoints, setMovements }) => {
+  const winGame = (counterMatch) => {
+    if (counterMatch === 8) {
+      console.log("Win");
+    }
+  };
+
+  const getPoints = (counterMatch) => {
+    setPoints(counterMatch);
+  };
+
   const onSelectCard = ({ idCard, isFlip, setIsFlip }) => {
     if (isFlip) return;
     setIsFlip(true);
@@ -23,23 +37,20 @@ export const cardMatch = () => {
 
     if (arrIds === 2 && arrSetFlip === 2) {
       validMatchCardsSelect(arrIdCard, arrSetFlipCard);
-    }
-  };
 
-  const winGame = (counterMatch) => {
-    if (counterMatch === 8) {
-      console.log("Win");
+      //* Aumentar los movimientos
+      setMovements((movement) => movement + 1);
     }
   };
 
   const validMatchCardsSelect = (arrId, arrSetFlip) => {
     let matchCard = false;
 
-    // ! podemos refactoriazar solo retornando algo en el array
     const cardMatchValid = possibleMatch.filter((ids) => {
       if (arrId.includes(ids[0]) && arrId.includes(ids[1])) {
-        //* almacenar los match para saber si gano
+        //* almacenar los match para saber si gano y los punto que tiene
         counterMatchCard.unshift(arrId);
+
         return arrId;
       }
     });
@@ -61,6 +72,7 @@ export const cardMatch = () => {
     arrIdCard = [];
     arrSetFlipCard = [];
     winGame(counterMatchCard.length);
+    getPoints(counterMatchCard.length);
   };
 
   return { onSelectCard };
