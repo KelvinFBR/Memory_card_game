@@ -6,8 +6,14 @@ import { CardsContext } from "../context/CardsContext";
 
 export const Table = () => {
   const suffleCards = useMemo(() => shuffleCards(dataCards), []);
-  const { setPoints, setMovements, flipCards } = useContext(CardsContext);
-  const { onSelectCard } = cardMatch({ setPoints, setMovements, flipCards });
+  const { setPoints, setMovements, flipCards, counterMatchCard } =
+    useContext(CardsContext);
+  const { onSelectCard } = cardMatch({
+    setPoints,
+    setMovements,
+    flipCards,
+    counterMatchCard,
+  });
 
   return (
     <div className="transparentBg text-sky-100 p-5 max-w-screen-sm  rounded-xl">

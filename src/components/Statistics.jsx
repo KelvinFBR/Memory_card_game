@@ -1,18 +1,33 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CardsContext } from "../context/CardsContext";
 import { Modal } from "./Modal";
 import { ModalInit } from "./ModalInit";
 
+const timeAudio = new Audio("./src/sounds/time.wav");
+const winAudio = new Audio("./src/sounds/win.wav");
+const loseAudio = new Audio("./src/sounds/lose.wav");
+
 export const Statistics = () => {
-  const {
-    time,
-    stopTimer,
-    resumeTimer,
-    Points,
-    movements,
-    modalStart,
-    TimeInit,
-  } = useContext(CardsContext);
+  const { time, stopTimer, Points, movements, modalStart } =
+    useContext(CardsContext);
+
+  useEffect(() => {
+    if (Points === 8 && !modalStart) {
+      stopTimer();
+    }
+  }, [Points]);
+
+  if (time === 9 && !modalStart) {
+    timeAudio.play();
+  }
+
+  if (Points === 8 && !modalStart) {
+    winAudio.play();
+  }
+
+  if (time === 0 && !modalStart) {
+    loseAudio.play();
+  }
 
   return (
     <>
@@ -34,20 +49,19 @@ export const Statistics = () => {
         </>
       )}
 
-      {Points === 8 && !modalStart && (
-        <>
-          <Modal tilte="You Win" />
-          {/* Detener el tiempo */}
-          {stopTimer()}
-        </>
-      )}
-
       {modalStart && (
         <>
           <ModalInit
             tilte="Welcome"
             description="Select a time and Play Game:"
           />
+        </>
+      )}
+
+      {Points === 8 && !modalStart && (
+        <>
+          <Modal tilte="You Win" />
+          {/* Detener el tiempo */}
         </>
       )}
     </>

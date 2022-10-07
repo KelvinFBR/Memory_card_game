@@ -12,26 +12,29 @@ const possibleMatch = [
 let arrIdCard = [];
 let arrSetFlipCard = [];
 
-//! Debe de resetearse al ganar
-const counterMatchCard = [];
+const selectAudio = new Audio("./src/sounds/select_005.wav");
+const matchAudio = new Audio("./src/sounds/confirmation_001.wav");
+const errorAudio = new Audio("../src/sounds/error_005.wav");
+
+//! Debe de resetearse al ganar colocarlo en el context
 
 //* setPoints, setMovements modificadores del estado del CardContext
 //  setPoints: modifica los puntos
 //  setMovementsL modifica los movimientos
 
-export const cardMatch = ({ setPoints, setMovements, flipCards }) => {
-  const winGame = (counterMatch) => {
-    if (counterMatch === 8) {
-      console.log("Win");
-    }
-  };
-
+export const cardMatch = ({
+  setPoints,
+  setMovements,
+  flipCards,
+  counterMatchCard,
+}) => {
   const getPoints = (counterMatch) => {
     setPoints(counterMatch);
   };
 
   const onSelectCard = ({ idCard, isFlip, setIsFlip }) => {
     if (isFlip) return;
+
     setIsFlip(true);
 
     //* solucion para introducir todos los modificadores de las card flip = true
@@ -44,9 +47,11 @@ export const cardMatch = ({ setPoints, setMovements, flipCards }) => {
 
     if (arrIds === 2 && arrSetFlip === 2) {
       validMatchCardsSelect(arrIdCard, arrSetFlipCard);
-
       //* Aumentar los movimientos
       setMovements((movement) => movement + 1);
+    } else {
+      //* audio select card
+      selectAudio.play();
     }
   };
 
@@ -64,8 +69,14 @@ export const cardMatch = ({ setPoints, setMovements, flipCards }) => {
 
     if (cardMatchValid.length > 0) {
       matchCard = true;
+
+      //* audio match
+      matchAudio.play();
     } else {
       matchCard = false;
+
+      //* audio not match
+      errorAudio.play();
     }
 
     if (!matchCard) {
@@ -81,8 +92,9 @@ export const cardMatch = ({ setPoints, setMovements, flipCards }) => {
 
     arrIdCard = [];
     arrSetFlipCard = [];
-    winGame(counterMatchCard.length);
     getPoints(counterMatchCard.length);
+
+    console.log({ flipCards, counterMatchCard });
   };
 
   return { onSelectCard };

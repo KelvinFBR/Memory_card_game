@@ -3,6 +3,7 @@ import { useTimeGame } from "../hooks/useTimeGame";
 export const CardsContext = createContext();
 
 let flipCards = [];
+let counterMatchCard = [];
 
 export const CardsProvider = ({ children }) => {
   const [movements, setMovements] = useState(0);
@@ -19,8 +20,10 @@ export const CardsProvider = ({ children }) => {
       fns[0](false);
       fns[1](false);
     });
-
     flipCards = [];
+    counterMatchCard = [];
+    setPoints(0);
+    setMovements(0);
   };
 
   return (
@@ -38,6 +41,7 @@ export const CardsProvider = ({ children }) => {
         setPoints,
         flipCards,
         restartGame,
+        counterMatchCard,
       }}
     >
       {children}
