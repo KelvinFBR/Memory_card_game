@@ -1,20 +1,35 @@
 import { useEffect, useState } from "react";
 
-export const useTimeGame = (initialState) => {
+export const useTimeGame = (initialState = 0) => {
+  let myInterval;
   const [time, setTime] = useState(initialState);
+  const [controlTimer, setControlTimer] = useState(true);
 
   function myTimer() {
     setTime((time) => time - 1);
   }
 
+  function stopTimer() {
+    console.log("stop");
+    setControlTimer(false);
+  }
+
+  function resumeTimer() {
+    console.log("resume");
+    setControlTimer(true);
+  }
+
   useEffect(() => {
     if (time <= 0) return;
-    const myInterval = setInterval(myTimer, 1000);
+
+    if (controlTimer) {
+      myInterval = setInterval(myTimer, 1000);
+    }
 
     return () => {
       clearInterval(myInterval);
     };
   }, [time]);
 
-  return { time };
+  return { time, stopTimer, resumeTimer, setTime };
 };

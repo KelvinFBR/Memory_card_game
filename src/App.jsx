@@ -5,9 +5,9 @@ import { CardsProvider } from "./context/CardsContext";
 function App() {
   return (
     <CardsProvider>
-      <section className="h-screen flex flex-col justify-center items-center">
+      <section className="relative h-screen flex flex-col justify-center items-center">
         <Table />
-        <Statistics points={2} time={"40"} movements={5} />
+        <Statistics />
       </section>
     </CardsProvider>
   );

@@ -11,13 +11,15 @@ const possibleMatch = [
 
 let arrIdCard = [];
 let arrSetFlipCard = [];
+
+//! Debe de resetearse al ganar
 const counterMatchCard = [];
 
 //* setPoints, setMovements modificadores del estado del CardContext
 //  setPoints: modifica los puntos
 //  setMovementsL modifica los movimientos
 
-export const cardMatch = ({ setPoints, setMovements }) => {
+export const cardMatch = ({ setPoints, setMovements, flipCards }) => {
   const winGame = (counterMatch) => {
     if (counterMatch === 8) {
       console.log("Win");
@@ -31,6 +33,11 @@ export const cardMatch = ({ setPoints, setMovements }) => {
   const onSelectCard = ({ idCard, isFlip, setIsFlip }) => {
     if (isFlip) return;
     setIsFlip(true);
+
+    //* solucion para introducir todos los modificadores de las card flip = true
+    // if (!flipCards.find((card) => card.id === idCard)) {
+    //   flipCards.unshift({ id: idCard, setIsFlip });
+    // }
 
     const arrSetFlip = arrSetFlipCard.unshift(setIsFlip);
     const arrIds = arrIdCard.unshift(idCard);
@@ -66,7 +73,10 @@ export const cardMatch = ({ setPoints, setMovements }) => {
         arrSetFlip.forEach((setFlip) => {
           setFlip(false);
         });
-      }, 800);
+      }, 600);
+    } else {
+      //* almacena las referencias de los modificadores de flip card
+      flipCards.unshift([...arrSetFlip]);
     }
 
     arrIdCard = [];
