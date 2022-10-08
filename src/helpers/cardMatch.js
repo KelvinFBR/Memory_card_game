@@ -12,9 +12,9 @@ const possibleMatch = [
 let arrIdCard = [];
 let arrSetFlipCard = [];
 
-const selectAudio = new Audio("./src/sounds/select_005.wav");
-const matchAudio = new Audio("./src/sounds/confirmation_001.wav");
-const errorAudio = new Audio("../src/sounds/error_005.wav");
+const selectAudio = new Audio("./sounds/select_005.wav");
+const matchAudio = new Audio("./sounds/confirmation_001.wav");
+const errorAudio = new Audio("./sounds/error_005.wav");
 
 //! Debe de resetearse al ganar colocarlo en el context
 

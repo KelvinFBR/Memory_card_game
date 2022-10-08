@@ -12,7 +12,7 @@ export const Card = ({ idCard, numCard, onSelectCard }) => {
       }`}
     >
       <img
-        src={`/assets/${numCard}.png`}
+        src={`./assets/${numCard}.png`}
         alt="card"
         className={`relative w-[80%] cursor-pointer ${
           isFlip ? "z-10 opacity-100 cardImgUp" : "z-0 opacity-0 cardImgDown"

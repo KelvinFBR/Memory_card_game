@@ -3,9 +3,9 @@ import { CardsContext } from "../context/CardsContext";
 import { Modal } from "./Modal";
 import { ModalInit } from "./ModalInit";
 
-const timeAudio = new Audio("./src/sounds/time.wav");
-const winAudio = new Audio("./src/sounds/win.wav");
-const loseAudio = new Audio("./src/sounds/lose.wav");
+const timeAudio = new Audio("./sounds/time.wav");
+const winAudio = new Audio("./sounds/win.wav");
+const loseAudio = new Audio("./sounds/lose.wav");
 
 export const Statistics = () => {
   const { time, stopTimer, Points, movements, modalStart } =
