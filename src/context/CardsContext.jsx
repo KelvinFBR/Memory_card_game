@@ -9,6 +9,7 @@ export const CardsProvider = ({ children }) => {
   const [movements, setMovements] = useState(0);
   const [Points, setPoints] = useState(0);
   const [modalStart, setModalStart] = useState(true);
+  const [shuffleCard, setShuffleCard] = useState(true);
   const { time, stopTimer, resumeTimer, setTime } = useTimeGame(0);
 
   const TimeInit = (initial) => {
@@ -17,13 +18,17 @@ export const CardsProvider = ({ children }) => {
 
   const restartGame = () => {
     flipCards.forEach((fns) => {
-      fns[0](false);
-      fns[1](false);
+      fns.setIsFlip(false);
     });
     flipCards = [];
     counterMatchCard = [];
     setPoints(0);
     setMovements(0);
+
+    //* shuffle card
+    setTimeout(() => {
+      setShuffleCard((ShuffleState) => !ShuffleState);
+    }, 500);
   };
 
   return (
@@ -42,6 +47,7 @@ export const CardsProvider = ({ children }) => {
         flipCards,
         restartGame,
         counterMatchCard,
+        shuffleCard,
       }}
     >
       {children}

@@ -34,13 +34,12 @@ export const cardMatch = ({
 
   const onSelectCard = ({ idCard, isFlip, setIsFlip }) => {
     if (isFlip) return;
-
     setIsFlip(true);
 
     //* solucion para introducir todos los modificadores de las card flip = true
-    // if (!flipCards.find((card) => card.id === idCard)) {
-    //   flipCards.unshift({ id: idCard, setIsFlip });
-    // }
+    if (!flipCards.find((card) => card.id === idCard)) {
+      flipCards.unshift({ id: idCard, setIsFlip });
+    }
 
     const arrSetFlip = arrSetFlipCard.unshift(setIsFlip);
     const arrIds = arrIdCard.unshift(idCard);
@@ -84,17 +83,12 @@ export const cardMatch = ({
         arrSetFlip.forEach((setFlip) => {
           setFlip(false);
         });
-      }, 600);
-    } else {
-      //* almacena las referencias de los modificadores de flip card
-      flipCards.unshift([...arrSetFlip]);
+      }, 450);
     }
 
     arrIdCard = [];
     arrSetFlipCard = [];
     getPoints(counterMatchCard.length);
-
-    console.log({ flipCards, counterMatchCard });
   };
 
   return { onSelectCard };

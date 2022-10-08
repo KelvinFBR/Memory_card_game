@@ -15,19 +15,19 @@ export const Statistics = () => {
     if (Points === 8 && !modalStart) {
       stopTimer();
     }
-  }, [Points]);
 
-  if (time === 9 && !modalStart) {
-    timeAudio.play();
-  }
+    if (time === 9 && !modalStart) {
+      timeAudio.play();
+    }
 
-  if (Points === 8 && !modalStart) {
-    winAudio.play();
-  }
+    if (Points === 8 && !modalStart) {
+      winAudio.play();
+    }
 
-  if (time === 0 && !modalStart) {
-    loseAudio.play();
-  }
+    if (time === 0 && !modalStart) {
+      loseAudio.play();
+    }
+  }, [Points, time]);
 
   return (
     <>

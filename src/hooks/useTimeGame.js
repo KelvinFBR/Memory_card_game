@@ -10,12 +10,10 @@ export const useTimeGame = (initialState = 0) => {
   }
 
   function stopTimer() {
-    console.log("stop");
     setControlTimer(false);
   }
 
   function resumeTimer() {
-    console.log("resume");
     setControlTimer(true);
   }
 
