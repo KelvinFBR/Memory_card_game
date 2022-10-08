@@ -1,5 +1,5 @@
 import { Card } from "./Card";
-import { dataCards } from "../../data/DataCards";
+import { dataCards } from "../data/dataCards";
 import { shuffleCards, cardMatch } from "../helpers/";
 import { useContext, useMemo } from "react";
 import { CardsContext } from "../context/CardsContext";
