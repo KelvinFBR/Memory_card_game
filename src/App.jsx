@@ -12,7 +12,7 @@ function App() {
           <p className="text-center text-sky-100 font-bold">
             2022 - Coded by{" "}
             <a
-              className="transition-all text-sky-900 hover:text-sky-800 inline-block hover:scale-110"
+              className="transition-all text-sky-900 underline hover:text-sky-800 inline-block hover:scale-110"
               href="https://kelvin-f-baez-rodriguez-frontend-dev.netlify.app/"
               target="_blank"
             >

@@ -16,7 +16,7 @@ export const Modal = ({ tilte }) => {
         <hr />
         <button
           onClick={() => restart()}
-          className="text-md px-4 py-2 mt-6 mx-2 rounded-xl  text-[#56a7b1] bg-sky-100 hover:bg-gray-300 hover:scale-110 transition-all"
+          className="text-md px-4 py-2 mt-6 mx-2 rounded-xl  text-[#56a7b1] bg-sky-100 hover:bg-gray-200 hover:scale-110 transition-all"
         >
           Play Again
         </button>

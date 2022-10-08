@@ -7,7 +7,7 @@ export const Card = ({ idCard, numCard, onSelectCard }) => {
     <div
       data-id={idCard}
       onClick={() => onSelectCard({ idCard, isFlip, setIsFlip })}
-      className={`flex justify-center relative cursor-pointer p-2 h-[82px] w-[100px] bg-sky-100 rounded-lg ${
+      className={`flex justify-center relative cursor-pointer p-2 w-[100%] max-w-[100px] bg-sky-100 rounded-lg ${
         isFlip ? "flip-face-up cardFaceDown" : "flip-face-dowm cardFaceUp"
       }`}
     >

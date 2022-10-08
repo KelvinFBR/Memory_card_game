@@ -19,19 +19,19 @@ export const ModalInit = ({ tilte, description }) => {
         <p className="my-8 text-lg">{description}</p>
         <button
           onClick={() => restart(40)}
-          className="text-md  px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-300 hover:scale-110 transition-all"
+          className="text-md  px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-200 hover:scale-110 transition-all"
         >
           40 Seg
         </button>
         <button
           onClick={() => restart(60)}
-          className="text-md px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-300 hover:scale-110 transition-all"
+          className="text-md px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-200 hover:scale-110 transition-all"
         >
           1 Min
         </button>
         <button
           onClick={() => restart(120)}
-          className="text-md  px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-300 hover:scale-110 transition-all"
+          className="text-md  px-4 py-2 mx-2 rounded-xl shadow-lg text-[#56a7b1] bg-sky-100 hover:bg-gray-200 hover:scale-110 transition-all"
         >
           2 Min
         </button>
